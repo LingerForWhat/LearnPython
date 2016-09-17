@@ -1,0 +1,70 @@
+Python 笔记
+
+1.使用python interperter
+
+1.1 
+python interpeter 通常安装在 /usr/local/bin/python x.x 。将/usr/local/bin安装到unix shell搜索路径中是其可以通过指令打开。
+
+1.2
+退出指令：quit();
+
+1.3
+所有的命令行选项在 Command line and environment
+
+1.4
+了解interactive mode 见 Interactive mode
+
+1.5 
+编码 在第一行指明 例：
+# _*_ codeing:encoding _*_
+# _*_ coding: cp-1252 _*_
+默认是utf-8
+
+2. 初步认识Python
+2.1.1 数字
+加减乘除 + - * /
+除法/通常返回的是float型数据
+除法希望返回integer结果 使用//
+计算余数使用%
+次方运算 **
+=赋值运算
+如果变量没有定义将返回错误
+运算中有多种类型，如果有float将返回float
+在交互模式中，最后显示的值将附值在_上，而且这个变量只能用作只读。
+
+2.1.2 Strings
+Python支出多种字符串，可以被表达成多种形式。一种是被单引号包围''，一种是被双引号""。
+\可以跳过引号 尽管在字符串存储中有\ 但是用print() 显示的是转义结果
+如果想要\作为普通字符 在前面加r eg: r'C:\some\name
+String可以跨越多行 使用"""...""" 或'''....'''
+交互中换行 用\
+String 可以将用*复制字符串并用+链接
+两个或多个string挨在一起 自动合成
+String可以索引 第一个字符为index0 负索引从右边开始 -0=0 -1为最后一个字符
+切割字符 string（n:m）从n到m-1
+string(:n) 0~n-1 string(n:) n~最后
+python的字符不能改变 他们是immutable 如果需要不同的字符串 需要创建一个
+len()方法返回String的长度
+
+2.1.3 Lists
+list 通常是存储数组的容器 一般存储的是相同类型的 但是其也可以存储不同数据类型的
+list是顺序结构 可以被索引和分割 类似string
+list支持串联操作 eg: squres + [xx,xx,xx,xx]
+不像string list是可改变的 它内部的数据可以修改
+append() 在list尾加入数据
+clear list eg： squres[:] = []
+len() 返回list长度
+可以创建包含list的list
+
+
+
+
+
+
+
+
+
+
+
+
+
