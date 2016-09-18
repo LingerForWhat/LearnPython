@@ -1,0 +1,74 @@
+Python_第二节
+控制语句介绍
+
+2.1 if
+eg: 
+if x < 0:
+...     x = 0
+...     print('Negative changed to zero')
+... elif x == 0:
+...     print('Zero')
+... elif x == 1:
+...     print('Single')
+... else:
+...     print('More')
+
+elif 是 else if 的缩写
+
+2.2 for
+eg:
+>>> # Measure some strings:
+... words = ['cat', 'window', 'defenestrate']
+>>> for w in words:
+...     print(w, len(w))
+...
+cat 3
+window 6
+defenestrate 12
+
+2.3 range() 方法
+输出顺序的数字
+eg:
+for i in range(5):
+...     print(i)
+...
+0
+1
+2
+3
+4
+
+range(n,m,i) 从n到m间隔i
+
+用法：
+list(range(5))
+>>> a = ['Mary', 'had', 'a', 'little', 'lamb']
+>>> for i in range(len(a)):
+...     print(i, a[i])
+
+2.4 break continue else
+break 从for和while循环中跳出
+eg:
+for n in range(2, 10):
+...     for x in range(2, n):
+...         if n % x == 0:
+...             print(n, 'equals', x, '*', n//x)
+...             break
+...     else:
+...         # loop fell through without finding a factor
+...         print(n, 'is a prime number')
+...
+else 属于for循环 而不是if
+
+continue 立刻执行下一次循环
+
+2.5 pass
+并没有什么用，用在statement需要语句但是程序并不需要执行任何操作的情况下。
+eg:
+>>>     while True:
+...     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+
+可以用在创建最小的class，也可以用做占位的语句需要今后填写代码
+
+
+
