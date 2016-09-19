@@ -1,0 +1,55 @@
+python_第三节
+
+3.1 方法简介
+def function(x):
+xxxxxxxxx
+
+方法内的变量为方法独用，方法外不可用。但是被global定义的变量可以用在别的方法中。
+方法可以重命名 eg: f = fib
+方法即使没有return，系统默认返回None
+
+3.2 方法的高阶用法
+可以为方法定义输入变量，这里有三种形式，且可以结合使用
+3.2.1 最常用的用法就是为一个或多个变量确定默认值
+eg:
+def ask_ok(prompt, retries=4, reminder='Please try again!'):
+    while True:
+        ok = input(prompt)
+        if ok in ('y', 'ye', 'yes'):
+            return True
+        if ok in ('n', 'no', 'nop', 'nope'):
+            return False
+        retries = retries - 1
+        if retries < 0:
+            raise ValueError('invalid user response')
+        print(reminder)
+这个方法可以用作多种用途：
+ask_ok('Do you really want to quit?')
+ask_ok('OK to overwrite the file?', 2)
+ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
+
+3.2.2 方法的默认值在第一次创建时确定
+eg:
+i = 5
+def f(arg=i):
+    print(arg)
+i = 6
+f()
+
+输出5
+
+在list，dictionary或大多数class的实例中是不同的
+eg:
+def f(a, L=[]):
+    L.append(a)
+    return L
+
+print(f(1))
+print(f(2))
+print(f(3))
+
+输出：
+[1]
+[1, 2]
+[1, 2, 3]
+
