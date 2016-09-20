@@ -53,3 +53,55 @@ print(f(3))
 [1, 2]
 [1, 2, 3]
 
+3.3 keyword argument
+**keywords  输入变量和值
+*argument 输入值
+eg:
+def cheeseshop(kind, *arguments, **keywords):
+    print("-- Do you have any", kind, "?")
+    print("-- I'm sorry, we're all out of", kind)
+    for arg in arguments:
+        print(arg)
+    print("-" * 40)
+    keys = sorted(keywords.keys())
+    for kw in keys:
+        print(kw, ":", keywords[kw])
+
+called:
+cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, VERY runny, sir.",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
+
+print:
+-- Do you have any Limburger ?
+-- I'm sorry, we're all out of Limburger
+It's very runny, sir.
+It's really very, VERY runny, sir.
+----------------------------------------
+client : John Cleese
+shopkeeper : Michael Palin
+sketch : Cheese Shop Sketch
+
+3.4 方法注释
+eg:
+def f(ham: str, eggs: str = 'eggs') -> "check here":
+...     print("Annotations:", f.__annotations__)
+...     print("Arguments:", ham, eggs)
+...     return ham + ' and ' + eggs
+
+print：
+f('spam')
+Annotations: {'ham': <class 'str'>, 'return': 'check here', 'eggs': <class 'str'>}
+Arguments: spam eggs
+'spam and eggs'
+
+解释：
+#def关键字定义了函数f，在函数f中有两个参数：ham，eggs。
+#其中ham没有默认值，而eggs是有默认值的，其默认值为'eggs'.
+#参数ham的注释部分为：str；参数eggs的注释部分为：str
+# "check here"是返回值的注释，这个必须用 '->'连接
+
+
+
