@@ -1,0 +1,51 @@
+python_第四节
+
+4.1 可变参数列表
+def write_multiple_items(file, separator, *args):
+    file.write(separator.join(args))
+
+还有以下用法：
+>>> def concat(*args, sep="/"):
+...     return sep.join(args)
+...
+>>> concat("earth", "mars", "venus")
+'earth/mars/venus'
+>>> concat("earth", "mars", "venus", sep=".")
+'earth.mars.venus'
+
+4.2 解包list和元组
+前面已经使用'*'和'**'将传入参数打包为一个元组和字典，但如果参数已经为一个list或者元组，怎么将其作为参数传入函数呢？可以使用'*'和'**'来将其解包。看下面的例子：
+>>> args = [3, 6]  
+>>> list(range(*args))  
+[3, 4, 5]
+同样的方式，字典可以作为关键字参数使用，通过使用'**'操作符：
+>>> def parrot(voltage, state='a stiff', action='voom'):
+	print("-- This parrot wouldn't", action, end=' ')
+	print("if you put", voltage, "volts through it.", end=' ')
+	print("E's", state, "!")
+>>> d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+>>> parrot(**d)
+-- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+
+4.3 Lambda表达式
+使用lambda关键字可以创建小的匿名的函数，例如下面的函数返回两个参数的和：
+
+lambda a, b: a+b  
+lambda函数在语法上被限制为单表达式，语义上，他们仅是通常的函数定义的简化语法。像嵌套函数定义，lambda函数引用包含范围内的变量。
+
+>>> def make_incrementor(n):  
+    return lambda x: x + n  
+  
+>>> f = make_incrementor(42)  
+>>> f(0)  
+42  
+>>> f(1)  
+43  
+上面是使用Lambda表达式返回了一个函数，下面是另一个例子，传递一个小的函数作为参数：
+
+>>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]  
+>>> pairs.sort(key=lambda pair: pair[1])  
+>>> pairs  
+[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]  
+
+
