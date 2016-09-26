@@ -69,4 +69,25 @@ deque(['Michael', 'Terry', 'Graham'])
 
 *.popleft()
 
+5.1.3 List Comprehensions
+List comprehensions 提供了更加简洁的方法创建lists.
+eg:
+>>> squares = []
+>>> for x in range(10):
+...     squares.append(x**2)
+...
+>>> squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
+equal：
+squares = list(map(lambda x: x**2, range(10)))
+
+squares = [x**2 for x in range(10)]
+更加的简洁和易读
+
+表达式创建法：
+>>> [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+
+5.1.4 嵌套的list comprehensions
+在list comprehension初始表达式可以是任意的，包括另一个list comprehensions
